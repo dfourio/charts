@@ -5,7 +5,6 @@ metadata:
     app: {{ template "dfour-hub.name" . }}
   name: pvc-{{ template "dfour-hub.name" . }}
 spec:
-  volumeName: pv-{{ template "dfour-hub.name" . }}
   storageClassName: {{ .Values.storageClassName }}
   accessModes:
     - ReadWriteMany
