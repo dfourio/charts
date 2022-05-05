@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  labels: {{- include "dfour-hub.labels" . | nindent 4 }}
+    app: {{ template "dfour-hub.name" . }}
+  name: dfour-hub-service
+  namespace: {{ include "release_namespace" . }}
+  annotations:
+    {{- range $key, $value := .Values.proxy.svc.annotations }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "dfour-hub.name" . }}
+  type: LoadBalancer
+  ports:
+    - port: 8000
+      targetPort: 8000
