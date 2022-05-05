@@ -36,6 +36,11 @@ hub:
     cronJob: "*"
 
 proxy:
+  replicas: 1
+  image: ghcr.io/dfourio/dfour-proxy/dfour-proxy
+  tag: main
+  digest: ~
+
   svc:
     annotations: {}
   ingress:

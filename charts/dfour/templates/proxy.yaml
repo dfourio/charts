@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels: {{- include "dfour-hub.labels" . | nindent 4 }}
+    app: {{ template "dfour-hub.name" . }}
+  name: dfour-proxy
+  namespace: {{ include "release_namespace" . }}
+spec:
+  replicas: {{ .Values.proxy.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "dfour-hub.name" . }}
+  template:
+    metadata:
+      labels: {{- include "dfour-hub.labels" . | nindent 8 }}
+        app: {{ template "dfour-hub.name" . }}
+    spec:
+      containers:
+      - name: dfour-hub
+        {{- if .Values.proxy.digest }}
+        image: {{ .Values.proxy.image }}:{{ .Values.proxy.tag }}@{{ .Values.proxy.digest }}
+        {{- else }}
+        image: {{ .Values.proxy.image }}:{{ .Values.proxy.tag }}
+        {{- end }}
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8000
+        volumeMounts:
+        - name: {{ template "dfour-hub.name" . }}-volume
+          mountPath: /var/services
+      volumes:
+      - name: {{ template "dfour-hub.name" . }}-volume
+        persistentVolumeClaim:
+          claimName: pvc-{{ template "dfour-hub.name" . }}
