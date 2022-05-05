@@ -27,9 +27,9 @@ spec:
           - containerPort: 8000
         command: ["sh -c '[ ! -e /etc/nginx/conf.d/www.local.conf ] && ln -s /etc/nginx/conf.d/www.local.dev /etc/nginx/conf.d/www.local.conf; /usr/local/openresty/bin/openresty -g \"daemon off;\"'"]
         volumeMounts:
-        - name: pvc-{{ template "dfour-hub.name" . }}
+        - name: {{ template "dfour-hub.name" . }}-volume
           mountPath: /var/services
       volumes:
-        - name: pvc-{{ template "dfour-hub.name" . }}
+        - name: {{ template "dfour-hub.name" . }}-volume
           persistentVolumeClaim:
             claimName: pvc-{{ template "dfour-hub.name" . }}

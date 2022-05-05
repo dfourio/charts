@@ -61,10 +61,10 @@ spec:
           - containerPort: 8081
             name: gunicorn
         volumeMounts:
-        - name: pvc-{{ template "dfour-hub.name" . }}
+        - name: {{ template "dfour-hub.name" . }}-volume
           mountPath: /var/services
       volumes:
-      - name: pvc-{{ template "dfour-hub.name" . }}
+      - name: {{ template "dfour-hub.name" . }}-volume
         persistentVolumeClaim:
           claimName: pvc-{{ template "dfour-hub.name" . }}
       affinity:
