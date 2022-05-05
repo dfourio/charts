@@ -4,7 +4,6 @@ metadata:
   labels: {{- include "dfour-hub.labels" . | nindent 4 }}
     app: {{ template "dfour-hub.name" . }}
   name: pvc-{{ template "dfour-hub.name" . }}
-  namespace: {{ include "release_namespace" . }}
 spec:
   volumeName: pvc-{{ template "dfour-hub.name" . }}
   storageClassName: {{ .Values.storageClassName }}
