@@ -10,9 +10,6 @@ metadata:
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
-  selector:
-    matchLabels:
-      app: {{ template "dfour-hub.name" . }}
   type: LoadBalancer
   ports:
     - port: 8000

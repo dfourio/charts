@@ -16,17 +16,16 @@ spec:
         app: {{ template "dfour-hub.name" . }}
     spec:
       containers:
-      - image: {{ .Values.proxy.image }}
+      - name: dfour-proxy
         {{- if .Values.proxy.digest }}
-        digest: {{ .Values.proxy.digest }}
+        image: {{ .Values.proxy.image }}:{{ .Values.proxy.tag }}@{{ .Values.proxy.digest }}
         {{- else }}
-        tag: {{ .Values.proxy.tag }}
+        image: {{ .Values.proxy.image }}:{{ .Values.proxy.tag }}
         {{- end }}
         imagePullPolicy: IfNotPresent
-        name: dfour-proxy
         ports:
           - containerPort: 8000
-        command: "sh -c '[ ! -e /etc/nginx/conf.d/www.local.conf ] && ln -s /etc/nginx/conf.d/www.local.dev /etc/nginx/conf.d/www.local.conf; /usr/local/openresty/bin/openresty -g \"daemon off;\"'"
+        command: ["sh -c '[ ! -e /etc/nginx/conf.d/www.local.conf ] && ln -s /etc/nginx/conf.d/www.local.dev /etc/nginx/conf.d/www.local.conf; /usr/local/openresty/bin/openresty -g \"daemon off;\"'"]
         volumeMounts:
         - name: pvc-{{ template "dfour-hub.name" . }}
           mountPath: /var/services
