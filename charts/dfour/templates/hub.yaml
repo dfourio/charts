@@ -52,6 +52,8 @@ spec:
           value: "{{ .Values.hub.screenshot.cronJob }}"
         - name: START_APSCHEDULER
           value: "{{ .Values.hub.screenshot.run }}"
+        - name: DJANGO_MUNICIAPLITIES
+          value: "{{ .Values.hub.municipalitiesUrl }}"
         envFrom:
         - secretRef:
             # Secrets Ref for additional secret values
