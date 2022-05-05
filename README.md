@@ -1,5 +1,5 @@
 # dføur Charts
-[![Release Charts Workflow](https://github.com/dfourio/charts/actions/workflows/release-ondemand.yml/badge.svg)](https://github.com/dfourio/charts/actions/workflows/release-ondemand.yml)
+[![Release Charts on demand](https://github.com/dfourio/charts/actions/workflows/release-ondemand.yaml/badge.svg)](https://github.com/dfourio/charts/actions/workflows/release-ondemand.yaml)
 
 This repository contains the charts used for installing [dføur](https://dfour.space) using Helm. Currently, this chart only contains the following chart:
 
