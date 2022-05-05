@@ -24,6 +24,14 @@ helm repo add dfour https://charts.dfour.io
 helm repo update
 ```
 
+3. Create and apply secrets
+```
+cp .env.sample .env
+# Modify to fit deployment
+kubectl create namespace dfour
+kubectl create secret dfour-hub-secret --from-env-file=.env -n dfour
+```
+
 3. Install dføur chart.
 - With Helm 2, the following command will create a `dføur` namespace and install the dføur chart together.
 ```

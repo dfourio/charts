@@ -1,0 +1,53 @@
+nameOverride: ~
+
+hub:
+  replicas: 1
+  image: ghcr.io/cividi/dfour-hub
+  tag: stable
+  digest: ~
+
+  terminal: linux
+  autostart: true
+  general: 8081
+  debug: false
+  https: false
+
+  secretsRef: dfour-hub-secret
+
+  allowedHosts: localhost,django
+
+  email:
+    host:
+    port:
+    tls: true
+    from:
+  
+  admin:
+    headerTitle: dføur-hub
+    headerColor: "#000000"
+  
+  screenshot:
+    run: YES
+    # if set to yes, define schedule
+    # * every minute, */5 every 5 minutes
+    cronJob: "*"
+
+proxy:
+  replicas: 1
+  image: openresty/openresty
+  tag: 1.19.3.1-alpine-fat
+  digest: ~
+
+  svc:
+    annotations: {}
+  ingress:
+    annotations: {}
+    hostName: ~
+    tls: false
+    ingressClassName: ~
+
+
+
+## Specify override namespace, specifically this is useful for using dfour as sub-chart
+## and its release namespace is not `dfour`
+namespaceOverride: ""
