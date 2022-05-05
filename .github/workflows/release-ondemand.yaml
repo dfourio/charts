@@ -1,6 +1,9 @@
 name: Release Charts on demand
 
 on:
+  push:
+    branches:
+      - "main"
   workflow_dispatch:
     inputs:
       branch:
