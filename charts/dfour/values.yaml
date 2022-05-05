@@ -17,6 +17,8 @@ hub:
 
   allowedHosts: localhost,django
 
+  municipalitiesUrl: https://datahub.io/cividi/ch-municipalities/r/2.geojson
+
   email:
     host:
     port:
