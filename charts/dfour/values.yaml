@@ -34,19 +34,8 @@ hub:
     cronJob: "*"
 
 proxy:
-  replicas: 1
-  image: openresty/openresty
-  tag: 1.19.3.1-alpine-fat
-  digest: ~
-
   svc:
     annotations: {}
-  ingress:
-    annotations: {}
-    hostName: ~
-    tls: false
-    ingressClassName: ~
-
 
 
 ## Specify override namespace, specifically this is useful for using dfour as sub-chart
