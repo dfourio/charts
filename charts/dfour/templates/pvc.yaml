@@ -7,6 +7,7 @@ metadata:
   namespace: {{ include "release_namespace" . }}
 spec:
   volumeName: pvc-{{ template "dfour-hub.name" . }}
+  storageClassName: {{ .Values.storageClassName }}
   accessModes:
     - ReadWriteMany
   resources:

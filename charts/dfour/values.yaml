@@ -1,4 +1,5 @@
 nameOverride: ~
+storageClassName: "local-device"
 
 hub:
   replicas: 1
