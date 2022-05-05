@@ -36,6 +36,9 @@ hub:
 proxy:
   svc:
     annotations: {}
+  ingress:
+    annotations: {}
+
 
 
 ## Specify override namespace, specifically this is useful for using dfour as sub-chart
