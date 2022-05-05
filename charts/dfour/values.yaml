@@ -8,7 +8,7 @@ hub:
   digest: ~
 
   terminal: linux
-  autostart: true
+  autostart: "YES"
   general: 8081
   debug: false
   https: false
