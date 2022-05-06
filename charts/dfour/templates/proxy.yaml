@@ -24,6 +24,8 @@ spec:
         {{- end }}
         imagePullPolicy: IfNotPresent
         env:
+        - name: NGINX_SERVER_NAME
+          value: "{{ .Values.proxy.ingress.hostName }}"
         - name: NGINX_PORT
           value: "{{ .Values.proxy.port }}"
         - name: NGINX_HUB_UPSTREAM

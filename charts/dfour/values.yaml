@@ -53,6 +53,7 @@ proxy:
     annotations: {}
   ingress:
     annotations: {}
+    hostName: ~
 
 
 
