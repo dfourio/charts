@@ -41,6 +41,14 @@ proxy:
   tag: main
   digest: ~
 
+  port: 8000
+  upstream: django-hub-0
+
+  accessLog: /dev/stdout
+  errorLog: /dev/stdout
+
+  maxBodySize: 25M
+
   svc:
     annotations: {}
   ingress:

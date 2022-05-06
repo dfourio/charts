@@ -15,3 +15,18 @@ spec:
       targetPort: 8000
   selector:
     app: {{ template "dfour-hub.name" . }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dfour-hub-gunicorn
+  namespace: {{ include "release_namespace" . }}
+  labels: {{- include "dfour-hub.labels" . | nindent 4 }}
+    app: {{ template "dfour-hub.name" . }}
+spec:
+  ports:
+  - port: 8081
+    name: gunicorn
+  clusterIP: None
+  selector:
+    app: {{ template "dfour-hub.name" . }}

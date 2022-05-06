@@ -23,6 +23,17 @@ spec:
         image: {{ .Values.proxy.image }}:{{ .Values.proxy.tag }}
         {{- end }}
         imagePullPolicy: IfNotPresent
+        env:
+        - name: NGINX_PORT
+          value: {{ .Values.proxy.port }}
+        - name: NGINX_HUB_UPSTREAM
+          value: {{ .Values.proxy.upstream }}
+        - name: NGINX_ACCESS_LOG
+          value: {{ .Values.proxy.accessLog }}
+        - name: NGINX_ERROR_LOG
+          value: {{ .Values.proxy.errorLog }}
+        - name: NGINX_MAX_BODY_SIZE
+          value: {{ .Values.proxy.maxBodySize }}
         ports:
           - containerPort: 8000
         volumeMounts:
