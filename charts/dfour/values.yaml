@@ -41,6 +41,7 @@ proxy:
   tag: main
   digest: ~
 
+  host: ~
   port: 8000
   upstream: django-hub-0
 

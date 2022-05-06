@@ -31,6 +31,8 @@ spec:
           value: "{{ .Values.hub.terminal }}"
         - name: START_DJANGO
           value: "{{ .Values.hub.autostart }}"
+        - name: DJANGO_HOST
+          value: "{{ .Values.hub.host }}"
         - name: DJANGO_PORT
           value: "{{ .Values.hub.port }}"
         - name: DJANGO_DEBUG
