@@ -29,7 +29,7 @@ spec:
         - name: NGINX_PORT
           value: "{{ .Values.proxy.port }}"
         - name: NGINX_HUB_UPSTREAM
-          value: "{{ .Values.proxy.upstream }}"
+          value: "{{ .Values.proxy.upstream }}:{{ .Values.hub.port }}"
         - name: NGINX_ACCESS_LOG
           value: "{{ .Values.proxy.accessLog }}"
         - name: NGINX_ERROR_LOG
@@ -45,3 +45,12 @@ spec:
       - name: {{ template "dfour-hub.name" . }}-volume
         persistentVolumeClaim:
           claimName: pvc-{{ template "dfour-hub.name" . }}
+      livenessProbe:
+        httpGet:
+          host: "{{ .Values.proxy.upstream }}"
+          port: 8081
+          path: "/gmanage"
+        failureThreshold: 1
+        periodSeconds: 60
+        # Override pod-level terminationGracePeriodSeconds #
+        terminationGracePeriodSeconds: 60

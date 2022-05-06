@@ -84,3 +84,9 @@ spec:
                 values:
                 - {{ template "dfour-hub.name" . }}
             topologyKey: "kubernetes.io/hostname"
+      livenessProbe:
+        tcpSocket:
+          port: gunicorn
+        initialDelaySeconds: 15
+        periodSeconds: 20
+        failureThreshold: 30
