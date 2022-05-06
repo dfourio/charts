@@ -70,6 +70,12 @@ spec:
         volumeMounts:
         - name: {{ template "dfour-hub.name" . }}-volume
           mountPath: /var/services
+        livenessProbe:
+          tcpSocket:
+            port: gunicorn
+          initialDelaySeconds: 15
+          periodSeconds: 20
+          failureThreshold: 30
       volumes:
       - name: {{ template "dfour-hub.name" . }}-volume
         persistentVolumeClaim:
@@ -84,9 +90,3 @@ spec:
                 values:
                 - {{ template "dfour-hub.name" . }}
             topologyKey: "kubernetes.io/hostname"
-      livenessProbe:
-        tcpSocket:
-          port: gunicorn
-        initialDelaySeconds: 15
-        periodSeconds: 20
-        failureThreshold: 30
