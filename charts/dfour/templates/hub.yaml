@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   labels: {{- include "dfour-hub.labels" . | nindent 4 }}
     app: {{ template "dfour-hub.name" . }}
@@ -8,8 +8,9 @@ metadata:
 spec:
   replicas: {{ .Values.hub.replicas }}
   selector:
-    matchLabels:
+    matchLabels:  
       app: {{ template "dfour-hub.name" . }}
+  serviceName: gunicorn
   template:
     metadata:
       labels: {{- include "dfour-hub.labels" . | nindent 8 }}
