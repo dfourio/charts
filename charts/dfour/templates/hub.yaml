@@ -59,6 +59,22 @@ spec:
           value: "{{ .Values.hub.screenshot.run }}"
         - name: DJANGO_MUNICIAPLITIES
           value: "{{ .Values.hub.municipalitiesUrl }}"
+        - name: DJANGO_OIDC_LOGIN
+          value: "{{ .Values.hub.oidc.enabled }}"
+        - name: OIDC_RP_CLIENT_ID
+          value: "{{ .Values.hub.oidc.rpClientId }}"
+        - name: OIDC_RP_CLIENT_SECRET
+          value: "{{ .Values.hub.oidc.rpClientSecret }}"
+        - name: OIDC_OP_AUTHORIZATION_ENDPOINT
+          value: "{{ .Values.hub.oidc.opAuhorizationEndpoint }}"
+        - name: OIDC_OP_TOKEN_ENDPOINT
+          value: "{{ .Values.hub.oidc.opTokenEndpoint }}"
+        - name: OIDC_OP_USER_ENDPOINT
+          value: "{{ .Values.hub.oidc.opUserEndpoint }}"
+        - name: OIDC_OP_JWKS_ENDPOINT
+          value: "{{ .Values.hub.oidc.opJwksEndpoint }}"
+        - name: OIDC_OP_LOGOUT_ENDPOINT
+          value: "{{ .Values.hub.oidc.opLogoutEndpoint }}"
         envFrom:
         - secretRef:
             # Secrets Ref for additional secret values

@@ -34,6 +34,16 @@ hub:
     # if set to yes, define schedule
     # * every minute, */5 every 5 minutes
     cronJob: "*"
+  
+  oidc:
+    enabled: false
+    rpClientId: ~
+    rpClientSecret: ~
+    opAuhorizationEndpoint: ~
+    opTokenEndpoint: ~
+    opUserEndpoint: ~
+    opJwksEndpoint: ~
+    opLogoutEndpoint: ~
 
 proxy:
   replicas: 1
