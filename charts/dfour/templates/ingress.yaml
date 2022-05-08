@@ -30,5 +30,5 @@ spec:
           service:
             name: dfour-hub-service
             port:
-              number: 80
+              number: 8443
 {{- end }}
