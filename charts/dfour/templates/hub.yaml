@@ -10,7 +10,6 @@ spec:
   selector:
     matchLabels:  
       app: {{ template "dfour-hub.name" . }}
-  serviceName: gunicorn
   template:
     metadata:
       labels: {{- include "dfour-hub.labels" . | nindent 8 }}
