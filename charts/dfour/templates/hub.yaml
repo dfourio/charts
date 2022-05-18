@@ -81,3 +81,17 @@ spec:
         volumeMounts:
         - name: {{ template "dfour-hub.name" . }}-volume
           mountPath: /var/services
+      volumes:
+      - name: {{ template "dfour-hub.name" . }}-volume
+        persistentVolumeClaim:
+          claimName: pvc-{{ template "dfour-hub.name" . }}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ template "dfour-hub.name" . }}
+            topologyKey: "kubernetes.io/hostname"
