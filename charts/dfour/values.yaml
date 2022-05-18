@@ -7,6 +7,10 @@ hub:
   tag: stable
   digest: ~
 
+  memory:
+    request: "200Mi"
+    limit: "2Gi"
+
   terminal: linux
   autostart: "YES"
   port: 8081
