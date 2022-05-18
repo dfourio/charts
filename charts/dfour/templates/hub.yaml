@@ -89,9 +89,9 @@ spec:
           failureThreshold: 30
         resources:
           requests:
-            memory: "200Mi"
+            memory: "{{ .Values.hub.memory.request }}"
           limits:
-            memory: "1Gi"
+            memory: "{{ .Values.hub.memory.limit }}"
       - name: dfour-proxy
         {{- if .Values.proxy.digest }}
         image: {{ .Values.proxy.image }}:{{ .Values.proxy.tag }}@{{ .Values.proxy.digest }}
