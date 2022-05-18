@@ -81,12 +81,12 @@ spec:
         volumeMounts:
         - name: {{ template "dfour-hub.name" . }}-volume
           mountPath: /var/services
-        livenessProbe:
+        {{!-- livenessProbe:
           tcpSocket:
             port: gunicorn
           initialDelaySeconds: 15
           periodSeconds: 20
-          failureThreshold: 30
+          failureThreshold: 30 --}}
         resources:
           requests:
             memory: "{{ .Values.hub.memory.request }}"
