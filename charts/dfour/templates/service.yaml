@@ -30,3 +30,18 @@ spec:
   clusterIP: None
   selector:
     app: {{ template "dfour-hub.name" . }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dfour-hub-www
+  namespace: {{ include "release_namespace" . }}
+  labels: {{- include "dfour-hub.labels" . | nindent 4 }}
+    app: {{ template "dfour-hub.name" . }}
+spec:
+  ports:
+  - port: 8000
+    name: nginx
+  clusterIP: None
+  selector:
+    app: {{ template "dfour-hub.name" . }}
