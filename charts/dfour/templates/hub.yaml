@@ -120,11 +120,13 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: CELERY_BROKER
-          value: redis://redis:6379/0
+          value: "{{ .Values.celery.broker }}"
         - name: CELERY_BACKEND
-          value: redis://redis:6379/0
+          value: "{{ .Values.celery.backend }}"
         - name: START_CELERY_WORKER
           value: "YES"
+        - name: DJANGO_INTERNAL_HOST
+          value: "http://localhost:8081"
         - name: AUTORELOAD_CELERY_WORKER
           value: "NO"
         - name: DJANGO_SETTINGS_MODULE
