@@ -3,6 +3,35 @@ entries:
   dfour-hub:
   - apiVersion: v2
     appVersion: 0.7.3
+    created: "2022-08-23T12:57:05.338530087Z"
+    description: dføur is a web application for publishing and collaborating around
+      urban planning projects.
+    digest: d2561c296e321182e02549888219f1e8bdd23272a06ab08234c412d3a47b8419
+    home: https://github.com/cividi/spatial-data-package-platform
+    icon: https://raw.githubusercontent.com/cividi/spatial-data-package-platform/main/vue/public/android-chrome-192x192.png
+    keywords:
+    - dfour
+    - hub
+    - frictionlessdata
+    - frictionless
+    - geodata
+    - spatial
+    - django
+    - graphql
+    - python
+    - nodejs
+    kubeVersion: '>=1.18.0-0'
+    maintainers:
+    - email: support@cividi.ch
+      name: cividi
+    name: dfour-hub
+    sources:
+    - https://github.com/cividi/spatial-data-package-platform
+    urls:
+    - https://github.com/dfourio/charts/releases/download/dfour-hub-0.1.0-beta.5/dfour-hub-0.1.0-beta.5.tgz
+    version: 0.1.0-beta.5
+  - apiVersion: v2
+    appVersion: 0.7.3
     created: "2022-08-23T12:31:03.313000609Z"
     description: dføur is a web application for publishing and collaborating around
       urban planning projects.
