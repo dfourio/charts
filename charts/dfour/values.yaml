@@ -3,8 +3,8 @@ storageClassName: "local-device"
 
 hub:
   replicas: 1
-  image: ghcr.io/cividi/dfour-hub
-  tag: stable
+  image: registry.gitlab.com/cividi/dfour/dfour-hub
+  tag: latest
   digest: ~
 
   memory:

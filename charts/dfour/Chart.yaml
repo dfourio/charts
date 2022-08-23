@@ -1,6 +1,6 @@
 apiVersion: v2
 name: dfour-hub
-version: 0.1.0-beta.2
+version: 0.1.0-beta.3
 appVersion: 0.7.3
 kubeVersion: ">=1.18.0-0"
 description: dføur is a web application for publishing and collaborating around urban planning projects.
