@@ -110,7 +110,7 @@ spec:
         image: redis:6-alpine
         ports:
           - containerPort: 6379
-          - name: redis
+            name: redis
       - name: dfour-celery-worker
         {{- if .Values.hub.digest }}
         image: {{ .Values.hub.image }}:{{ .Values.hub.tag }}@{{ .Values.hub.digest }}
