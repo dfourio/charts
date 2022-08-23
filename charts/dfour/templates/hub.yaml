@@ -70,6 +70,10 @@ spec:
           value: "{{ .Values.hub.oidc.opJwksEndpoint }}"
         - name: OIDC_OP_LOGOUT_ENDPOINT
           value: "{{ .Values.hub.oidc.opLogoutEndpoint }}"
+        - name: CELERY_BROKER
+          value: "{{ .Values.celery.broker }}"
+        - name: CELERY_BACKEND
+          value: "{{ .Values.celery.backend }}"
         envFrom:
         - secretRef:
             # Secrets Ref for additional secret values
