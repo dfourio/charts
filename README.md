@@ -7,7 +7,7 @@ This repository contains the charts used for installing [dføur](https://dfour.s
 
 ## Adding the Chart
 ```
-$ helm repo add dfour https://charts.dfour.io
+$ helm repo add dfour https://dfourio.github.io/charts/
 $ helm repo update
 ```
 
